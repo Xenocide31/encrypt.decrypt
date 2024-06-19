@@ -224,3 +224,42 @@ function decryptMessage() {
         document.getElementById('decMsg').innerText = 'Original message: ' + decryptedWord;
     }, 2000);
 }
+
+function checkEncryptForm() {
+    const message = document.getElementById('message').value;
+    const shift = document.getElementById('shift').value;
+    const method = document.getElementById('method').value;
+    const r = document.getElementById('r').value;
+    const l = document.getElementById('l').value;
+    const loops = document.getElementById('loops').value;
+    const encryptButton = document.getElementById('encryptMessageBtn');
+
+    if (message && shift && method && r && l && loops) {
+        encryptButton.disabled = false;
+    } else {
+        encryptButton.disabled = true;;
+    }
+}
+
+function checkDecryptForm() {
+    const encryptedInput = document.getElementById('encryptedInput').value;
+    const keysInput = document.getElementById('keysInput').value;
+    const decryptButton = document.getElementById('decryptMessageBtn');
+
+    if (encryptedInput && keysInput) {
+        decryptButton.disabled = false;
+    } else {
+        decryptButton.disabled = true;
+    }
+}
+
+// Attach event listeners to the input fields to monitor changes
+document.getElementById('message').addEventListener('input', checkEncryptForm);
+document.getElementById('shift').addEventListener('input', checkEncryptForm);
+document.getElementById('method').addEventListener('input', checkEncryptForm);
+document.getElementById('r').addEventListener('input', checkEncryptForm);
+document.getElementById('l').addEventListener('input', checkEncryptForm);
+document.getElementById('loops').addEventListener('input', checkEncryptForm);
+
+document.getElementById('encryptedInput').addEventListener('input', checkDecryptForm);
+document.getElementById('keysInput').addEventListener('input', checkDecryptForm);

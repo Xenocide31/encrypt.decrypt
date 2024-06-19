@@ -14,7 +14,7 @@
                 <h1>Decrypt Your Message</h1>
                 <input type="text" placeholder="Enter the encrypted message" id="encryptedInput">
                 <input type="text" placeholder="Enter the keys" id="keysInput">
-                <button id="decryptMessageBtn" onclick="decryptMessage()">Decrypt</button>
+                <button id="decryptMessageBtn" onclick="decryptMessage()" disabled>Decrypt</button>
             </div>
             <div id="loadingDecrypt" class="form-container loader loadingDecrypt" style="display: none;"></div>
             <div class="form-container decryptedMessage" id="decryptedMessage" style="display: none;">
@@ -36,7 +36,7 @@
                 <input type="number" placeholder="Enter value of r" id="r" required>
                 <input type="number" placeholder="Enter value of l" id="l" required>
                 <input type="number" placeholder="Enter the number of loops" id="loops" required>
-                <button id="encryptMessageBtn" onclick="encryptMessage()">Encrypt</button>
+                <button id="encryptMessageBtn" onclick="encryptMessage()" disabled>Encrypt</button>
             </div>
             <div class="form-container loader loadingEncrypt" id="loadingEncrypt" style="display: none;"></div>
             <div class="form-container encryptedMessage" id="encryptedMessage" style="display: none;">
