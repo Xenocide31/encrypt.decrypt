@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Encrypt/Decrypt Website</title>
+</head>
+<body>
+    <div class="container" id="container">
+        <div class="form-container decryptMessage">
+            <form id="decryptMessageForm">
+                <h1>Decrypt Your Message</h1>
+                <input type="text" placeholder="Enter the encrypted message" id="encryptedInput">
+                <input type="text" placeholder="Enter the keys" id="keysInput">
+                <button id="decryptMessageBtn" onclick="decryptMessage()">Decrypt</button>
+            </form>
+            <div id="loadingDecrypt" class="form-container loader loadingDecrypt" style="display: none;"></div>
+            <div class="form-container decryptedMessage" id="decryptedMessage" style="display: none;">
+                <h2>Decrypted Message</h2>
+                <span id="decMsg"><button class="copyBtn"><i class="fa-regular fa-copy"></i></button></span>
+            </div>
+        </div>
+
+        <div class="form-container encryptMessage">
+            <form id="encryptMessageForm">
+                <h1>Encrypt Your Message</h1>
+                <input type="text" id="message" placeholder="Enter message" required>
+                <input type="number" id="shift" placeholder="Enter number of shifts" required>
+                <select id="method" required>
+                    <option value="" disabled selected>Choose a method (sine/cosine)</option>
+                    <option value="sine">Sine</option>
+                    <option value="cosine">Cosine</option>
+                </select>
+                <input type="number" placeholder="Enter value of r" id="r" required>
+                <input type="number" placeholder="Enter value of l" id="l" required>
+                <input type="number" placeholder="Enter the number of loops" id="loops" required>
+                <button id="encryptMessageBtn" onclick="encryptMessage()">Encrypt</button>
+            </form>
+            <div class="form-container loader loadingEncrypt" id="loadingEncrypt" style="display: none;"></div>
+            <div class="form-container encryptedMessage" id="encryptedMessage" style="display: none;">
+                <h2>Encrypted Message</h2>
+                <span id="encMsg"><button class="copyBtn"><i class="fa-regular fa-copy"></i></button></span>
+                <h2>Keys Set</h2>
+                <span id="keySet"><button class="copyBtn"><i class="fa-regular fa-copy"></i></button></span>
+            </div>
+        </div>
+
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-left">
+                    <h1>Encrypt Your Message</h1>
+                    <button class="hidden" id="encryptBtn">
+                        <i class="fa-solid fa-lock"></i>
+                    </button>
+                </div>
+                <div class="toggle-panel toggle-right">
+                    <h1>Decrypt Your Message</h1>
+                    <button class="hidden" id="decryptBtn">
+                        <i class="fa-solid fa-lock-open"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
