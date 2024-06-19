@@ -10,12 +10,12 @@
 <body>
     <div class="container" id="container">
         <div class="form-container decryptMessage">
-            <form id="decryptMessageForm">
+            <div class="form" id="decryptMessageForm">
                 <h1>Decrypt Your Message</h1>
                 <input type="text" placeholder="Enter the encrypted message" id="encryptedInput">
                 <input type="text" placeholder="Enter the keys" id="keysInput">
                 <button id="decryptMessageBtn" onclick="decryptMessage()">Decrypt</button>
-            </form>
+            </div>
             <div id="loadingDecrypt" class="form-container loader loadingDecrypt" style="display: none;"></div>
             <div class="form-container decryptedMessage" id="decryptedMessage" style="display: none;">
                 <h2>Decrypted Message</h2>
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-container encryptMessage">
-            <form id="encryptMessageForm">
+            <div class="form" id="encryptMessageForm">
                 <h1>Encrypt Your Message</h1>
                 <input type="text" id="message" placeholder="Enter message" required>
                 <input type="number" id="shift" placeholder="Enter number of shifts" required>
@@ -37,7 +37,7 @@
                 <input type="number" placeholder="Enter value of l" id="l" required>
                 <input type="number" placeholder="Enter the number of loops" id="loops" required>
                 <button id="encryptMessageBtn" onclick="encryptMessage()">Encrypt</button>
-            </form>
+            </div>
             <div class="form-container loader loadingEncrypt" id="loadingEncrypt" style="display: none;"></div>
             <div class="form-container encryptedMessage" id="encryptedMessage" style="display: none;">
                 <h2>Encrypted Message</h2>

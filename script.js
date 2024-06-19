@@ -13,16 +13,16 @@ encryptBtn.addEventListener('click', () => {
 function encryptCaesar(word, shift) {
     let result = '';
     for (let i = 0; i < word.length; i++) {
-        let char = word[i];
-        if (char.match(/[a-z]/i)) {
-            let code = word.charCodeAt(i);
-            if (code >= 65 && code <= 90) {
-                char = String.fromCharCode(((code - 65 + shift) % 26) + 65);
-            } else if (code >= 97 && code <= 122) {
-                char = String.fromCharCode(((code - 97 + shift) % 26) + 97);
-            }
-        }
-        result += char;
+    let char = word[i];
+    if (char.match(/[a-z]/i)) {
+    let code = word.charCodeAt(i);
+    if (code >= 65 && code <= 90) {
+    char = String.fromCharCode(((code - 65 + shift) % 26) + 65);
+    } else if (code >= 97 && code <= 122) {
+    char = String.fromCharCode(((code - 97 + shift) % 26) + 97);
+    }
+    }
+    result += char;
     }
     return result;
 }
@@ -39,7 +39,6 @@ function encryptMessage() {
     let l = parseInt(document.getElementById('l').value);
     let j = parseInt(document.getElementById('loops').value);
 
-    // Determine method value
     let method = methodInput === 'sine' ? 1 : methodInput === 'cosine' ? 2 : 0;
 
     word = encryptCaesar(word, shift);
@@ -104,10 +103,10 @@ function encryptMessage() {
 
     const loading = document.getElementById('loadingEncrypt');
     loading.style.display = 'flex';
- 
+
     setTimeout(() => {
         loading.style.display = 'none';
- 
+
         const encryptedMessage = document.getElementById('encryptedMessage');
         
         encryptedMessage.style.display = 'flex';
@@ -127,12 +126,12 @@ function numberToChar(num) {
 function decryptCaesarCipher(encryptedWord, shift) {
     let decryptedWord = '';
     for (let i = 0; i < encryptedWord.length; i++) {
-        let ch = encryptedWord[i];
-        if (/[a-zA-Z]/.test(ch)) {
-            let base = ch >= 'a' ? 'a'.charCodeAt(0) : 'A'.charCodeAt(0);
-            ch = String.fromCharCode(base + (ch.charCodeAt(0) - base - shift + 26) % 26);
-        }
-        decryptedWord += ch;
+    let ch = encryptedWord[i];
+    if (/[a-zA-Z]/.test(ch)) {
+    let base = ch >= 'a' ? 'a'.charCodeAt(0) : 'A'.charCodeAt(0);
+    ch = String.fromCharCode(base + (ch.charCodeAt(0) - base - shift + 26) % 26);
+    }
+    decryptedWord += ch;
     }
     return decryptedWord;
 }
@@ -225,41 +224,3 @@ function decryptMessage() {
         document.getElementById('decMsg').innerText = 'Original message: ' + decryptedWord;
     }, 2000);
 }
-
-function copyToClipboard(elementId) {
-    let text = document.getElementById(elementId).textContent;
-    navigator.clipboard.writeText(text).catch(err => {
-        alert('Failed to copy text: ' + err);
-    });
-}
-
-function updatePlaceholders() {
-    const encryptedInput = document.getElementById('encryptedInput');
-    const keysInput = document.getElementById('keysInput');
-    const messageInput = document.getElementById('message');
-    const shiftInput = document.getElementById('shift');
-    const rInput = document.getElementById('r');
-    const lInput = document.getElementById('l');
-    const loopsInput = document.getElementById('loops');
-
-    if (window.innerWidth <= 760) {
-        encryptedInput.placeholder = "Encrypted message";
-        keysInput.placeholder = "Enter keys";
-        messageInput.placeholder = "Enter message";
-        shiftInput.placeholder = "Enter shifts";
-        rInput.placeholder = "Enter value of r";
-        lInput.placeholder = "Enter value of l";
-        loopsInput.placeholder = "Enter number of loops";
-    } else {
-        encryptedInput.placeholder = "Enter the encrypted message";
-        keysInput.placeholder = "Enter the keys";
-        messageInput.placeholder = "Enter message";
-        shiftInput.placeholder = "Enter number of shifts";
-        rInput.placeholder = "Enter value of r";
-        lInput.placeholder = "Enter value of l";
-        loopsInput.placeholder = "Enter the number of loops";
-    }
-}
-
-window.addEventListener('load', updatePlaceholders);
-window.addEventListener('resize', updatePlaceholders);
