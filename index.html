@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- keep your original CSS and fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="AppIcons/playstore.png" type="image/png">
@@ -40,11 +41,22 @@
                 <button id="encryptMessageBtn" onclick="encryptMessage()" disabled>Encrypt</button>
             </div>
             <div class="form-container loader loadingEncrypt" id="loadingEncrypt" style="display: none;"></div>
+
+            <!-- Encrypted message block (I added the Copy both button here) -->
             <div class="form-container encryptedMessage" id="encryptedMessage" style="display: none;">
                 <h2>Encrypted Message</h2>
                 <span id="encMsg"><button class="copyBtn"><i class="fa-regular fa-copy"></i></button></span>
+
                 <h2>Keys Set</h2>
                 <span id="keySet"><button class="copyBtn"><i class="fa-regular fa-copy"></i></button></span>
+
+                <!-- NEW: Copy both button (disabled until both encMsg & keySet present) -->
+                <div style="margin-top:12px;">
+                    <button id="copyBothBtn" disabled aria-disabled="true" title="Copy encrypted message and keys as JSON">
+                        <i class="fa-regular fa-copy" style="margin-right:8px"></i>
+                        Copy both (encrypted + keys)
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -66,6 +78,7 @@
         </div>
     </div>
 
+    <!-- keep your script reference (script.js contains the original code + our appended helper) -->
     <script src="script.js"></script>
 </body>
 </html>

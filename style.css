@@ -47,6 +47,7 @@ body {
     flex-wrap: wrap;
     flex-direction: row;
     padding-left: 8px;
+    overflow-y: auto;
 }
 
 .container button {
